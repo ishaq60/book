@@ -1,8 +1,9 @@
+import ListedBooks1 from "../ListedBooks1/ListedBooks1";
 
 const ListedBooks = () => {
     return (
         <div>
-            <h1>Listed Book Item</h1>
+            <ListedBooks1></ListedBooks1>
         </div>
     );
 };
