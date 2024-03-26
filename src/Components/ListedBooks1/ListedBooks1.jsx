@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import AllBooks from "../AllBooks/AllBooks";
+import { Link } from "react-router-dom";
 const ListedBooks1 = () => {
-
+    const links=<>
+    <Link to='/listedBooks' className='text-[18px] font-normal'>Read</Link>
+    <Link to='/wishlist' className='text-[18px] font-normal'>Wishlist</Link>
+    </>
     const [books, setBooks] = useState([])
     useEffect(() => {
         fetch('books.json')
@@ -23,8 +27,7 @@ const ListedBooks1 = () => {
                 </select>
             </div>
             <div className="flex gap-10">
-                <button>Read Books</button>
-                <button>Wishlist Books</button>
+                {links}
             </div>
             <div>
                 {

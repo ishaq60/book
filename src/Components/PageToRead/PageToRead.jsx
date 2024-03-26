@@ -1,8 +1,9 @@
+import GraphChart from "../GraphChart/GraphChart";
 
 const PageToRead = () => {
     return (
         <div>
-            <h1>Page to Read</h1>
+            <GraphChart></GraphChart>
         </div>
     );
 };
