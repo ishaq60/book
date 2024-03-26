@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import AllBooks from "../AllBooks/AllBooks";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from "react-router-dom";
 const ListedBooks1 = () => {
-    const links=<>
-    <Link to='/listedBooks' className='text-[18px] font-normal'>Read</Link>
-    <Link to='/wishlist' className='text-[18px] font-normal'>Wishlist</Link>
-    </>
+
+    const [tabIndex,setTabIndex]=useState(0)
+
     const [books, setBooks] = useState([])
     useEffect(() => {
         fetch('books.json')
@@ -18,16 +18,29 @@ const ListedBooks1 = () => {
             <div className="container mx-auto bg-slate-200 rounded-xl text-center py-8">
                 <h1 className="text-2xl font-bold">Books</h1>
             </div>
-            <div className="p-4 rounded text-center">
-                <select className="bg-green-200 px-4 py-2 rounded">   
-                    <option value="">Sort By</option>
-                    <option value="option1">Rating</option>
-                    <option value="option2">Number of pages</option>
-                    <option value="option3">Publisher Year</option>
-                </select>
+            <div className="dropdown my-8 lg:ml-[700px]">
+                <div tabIndex={0} role="button" className="bg-green-500 px-5 m-1 flex items-center text-xl gap-3 py-2 rounded-lg font-semibold text-white">Sort By <MdKeyboardArrowDown /></div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a></a></li>
+                    <li><a>Rating</a></li>
+                    <li><a>Number of pages</a></li>
+                    <li><a>Publisher Year</a></li>
+                </ul>
             </div>
-            <div className="flex gap-10">
-                {links}
+            <div className="flex -mx-4 items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:text-gray-800">
+                <Link onClick={()=>setTabIndex(0)} to='/listedBooks' rel="noopener noreferrer" href="#"  className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex===0?'border border-b-0':'border-b'} rounded-t-lg dark:border-gray-600 dark:text-gray-900`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Read</span>
+                </Link>
+                <Link to='/wishlist' onClick={()=>setTabIndex(1)}  rel="noopener noreferrer" href="#" className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex===1?'border border-b-0':'border-b'} rounded-t-lg dark:border-gray-600 dark:text-gray-900`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    <span>Wishlist</span>
+                </Link>
             </div>
             <div>
                 {
