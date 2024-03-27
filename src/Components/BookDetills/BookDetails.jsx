@@ -2,22 +2,37 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveReadBooks, saveWishListBooks } from "../../utility/localstorage";
+import { useState } from "react";
 const BookDetails = () => {
-
+    const [alreadyRead, setAlreadyRead] = useState(false)
+    const [alreadyWishlisted, setAlreadyWishlisted] = useState(false);
     const books=useLoaderData();
     const {bookId}=useParams()
     const bookIdInt=parseInt(bookId)
     const book=books.find(book=>book.bookId === bookIdInt)
     console.log(book)
 
-    const handleReadBtn=()=>{
-        saveReadBooks(bookId);
-        toast.success('You have read the book')
-    }
-    const handleWishlistBtn=()=>{
-        saveWishListBooks(bookId)
-        toast.success('You have wishlist this book')
-    }
+    const handleReadBtn = () => {
+        if (!alreadyRead) {
+            saveReadBooks(bookId);
+            toast.success('You have read the book');
+            setAlreadyRead(true);
+        } else {
+            toast.error('You have already marked this book as read');
+        }
+    };
+
+    const handleWishlistBtn = () => {
+        if (alreadyRead) {
+            toast.error('You have already marked this book as read. You cannot wishlist it.');
+        } else if (!alreadyWishlisted) {
+            saveWishListBooks(bookId);
+            toast.success('You have added this book to your wishlist');
+            setAlreadyWishlisted(true);
+        } else {
+            toast.error('You have already wishlisted this book');
+        }
+    };
     return (
         <div>
             <div className="flex gap-16">

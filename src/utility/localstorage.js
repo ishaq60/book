@@ -1,3 +1,5 @@
+
+
 const getStoredReadBooks=()=>{
     const storedReadBooks=localStorage.getItem('read-books')
     if(storedReadBooks){
@@ -14,9 +16,6 @@ const saveReadBooks=bookId=>{
     if(!exists){
         storedReadBooks.push(bookId)
         localStorage.setItem('read-books',JSON.stringify(storedReadBooks))
-    }
-    else{
-        alert('Already selected')
     }
 }
 
