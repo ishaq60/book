@@ -14,6 +14,7 @@ import BookDetails from './Components/BookDetills/BookDetails';
 // import Wishlist from './Components/WishList/Wishlist';
 import NotFound from './Components/NotFound/NotFound';
 import AboutUs from './Components/AboutUs/AboutUs';
+import Blog from './Components/Blog/Blog';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path:'/pageToRead',
         element:<PageToRead></PageToRead>,
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
       },
       {
         path:'/aboutUs',

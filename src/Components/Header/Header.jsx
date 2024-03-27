@@ -5,7 +5,7 @@ const Header = () => {
     <li><NavLink to='/' className='text-[18px] font-normal'>Home</NavLink></li>
     <li><NavLink to='/listedBooks' className='text-[18px] font-normal'>Listed Books</NavLink></li>
     <li><NavLink to='/pageToRead' className='text-[18px] font-normal'>Page to Read</NavLink></li>
-    <li><NavLink to='*' className='text-[18px] font-normal'>Blank</NavLink></li>
+    <li><NavLink to='/blog' className='text-[18px] font-normal'>Blogs</NavLink></li>
     <li><NavLink to='/aboutUs' className='text-[18px] font-normal'>FAQ</NavLink></li>
     </>
     return (
@@ -23,7 +23,7 @@ const Header = () => {
                     <a className="btn btn-ghost text-xl font-bold">Book Vibe</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 font-bold">
+                    <ul className="menu menu-horizontal px-1 font-bold gap-9">
                         {links}
                     </ul>
                 </div>
