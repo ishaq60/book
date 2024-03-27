@@ -1,19 +1,21 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { saveReadBooks } from "../../utility/localstorage";
+import { saveReadBooks, saveWishListBooks } from "../../utility/localstorage";
 const BookDetails = () => {
 
     const books=useLoaderData();
     const {bookId}=useParams()
     const bookIdInt=parseInt(bookId)
     const book=books.find(book=>book.bookId === bookIdInt)
+    console.log(book)
 
     const handleReadBtn=()=>{
         saveReadBooks(bookId);
         toast.success('You have read the book')
     }
     const handleWishlistBtn=()=>{
+        saveWishListBooks(bookId)
         toast.success('You have wishlist this book')
     }
     return (

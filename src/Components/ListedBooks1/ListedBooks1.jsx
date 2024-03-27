@@ -46,7 +46,7 @@ const ListedBooks1 = () => {
                 {
                     books.map(book=><AllBooks key={book.bookId} book={book}></AllBooks>)
                 }
-            </div> 
+            </div>
         </div>
         
     );

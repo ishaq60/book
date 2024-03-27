@@ -11,12 +11,15 @@ import Home from './Components/Home/Home';
 import ListedBooks from './Components/ListedBooks/ListedBooks';
 import PageToRead from './Components/PageToRead/PageToRead';
 import BookDetails from './Components/BookDetills/BookDetails';
-import Wishlist from './Components/WishList/Wishlist';
+// import Wishlist from './Components/WishList/Wishlist';
+import NotFound from './Components/NotFound/NotFound';
+import AboutUs from './Components/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
+    errorElement:<NotFound></NotFound>,
     children:[
       {
         path:'/',
@@ -28,19 +31,17 @@ const router = createBrowserRouter([
       },
       {
         path:'/pageToRead',
-        element:<PageToRead></PageToRead>
+        element:<PageToRead></PageToRead>,
       },
       {
-        path:'/wishlist',
-        element:<Wishlist></Wishlist>,
-        loader:()=>fetch('../books.json'),
+        path:'/aboutUs',
+        element:<AboutUs></AboutUs>
       },
       {
         path:'/book/:bookId',
         element:<BookDetails></BookDetails>,
         loader:()=>fetch('../books.json')
-      }
-
+      },
     ]
   },
 ]);

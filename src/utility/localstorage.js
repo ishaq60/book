@@ -15,6 +15,9 @@ const saveReadBooks=bookId=>{
         storedReadBooks.push(bookId)
         localStorage.setItem('read-books',JSON.stringify(storedReadBooks))
     }
+    else{
+        alert('Already selected')
+    }
 }
 
 const getStoredWishlistBooks=()=>{

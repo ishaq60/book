@@ -5,8 +5,8 @@ const Header = () => {
     <li><NavLink to='/' className='text-[18px] font-normal'>Home</NavLink></li>
     <li><NavLink to='/listedBooks' className='text-[18px] font-normal'>Listed Books</NavLink></li>
     <li><NavLink to='/pageToRead' className='text-[18px] font-normal'>Page to Read</NavLink></li>
-    <li><NavLink to='/blank' className='text-[18px] font-normal'>Blank</NavLink></li>
-    <li><NavLink to='/blank' className='text-[18px] font-normal'>Blank</NavLink></li>
+    <li><NavLink to='*' className='text-[18px] font-normal'>Blank</NavLink></li>
+    <li><NavLink to='/aboutUs' className='text-[18px] font-normal'>FAQ</NavLink></li>
     </>
     return (
         <div className="my-10">
