@@ -2,13 +2,11 @@ import PropTypes from 'prop-types';
 import { IoLocation } from "react-icons/io5";
 import { LiaUserFriendsSolid } from "react-icons/lia";
 import { MdOutlineFindInPage } from "react-icons/md";
-import { Link } from 'react-router-dom';
-
-const AllBooks = ({ book }) => {
-    const { bookId, bookName, author, image, totalPages, rating, category, tags, publisher, yearOfPublishing } = book;
-
+const WishListCard = ({book}) => {
+    const { bookName, author, image, totalPages, rating, category, tags, publisher, yearOfPublishing } = book;
     return (
         <div>
+             <div>
             <div className='container mx-auto border p-6 my-10 rounded-lg '>
                 <div className='lg:flex gap-10'>
                     <div className='bg-slate-200 p-5'>
@@ -28,6 +26,7 @@ const AllBooks = ({ book }) => {
                                 <IoLocation />
                                 <p>Year of Publishing:{yearOfPublishing}</p>
                             </div>
+
                         </div>
                         <div className='lg:flex gap-14'>
                             <div className='flex items-center gap-3'>
@@ -43,19 +42,17 @@ const AllBooks = ({ book }) => {
                         <div className='lg:flex gap-5 mt-2'>
                             <div className='bg-[#328EFF] text-center px-5 py-2 text-white rounded-full'><p>Category : {category}</p></div>
                             <div className='bg-[#FFAC33] text-center px-5 py-2 text-white rounded-full'><p>Rating: {rating}</p></div>
-                            <Link to={`/book/${bookId}`}>
-                                <button className='bg-[#23BE0A] px-5 py-2 text-white font-bold rounded-full'>View Details</button>
-                            </Link>
+                            <div><button className='bg-[#23BE0A] px-5 py-2 text-white font-bold rounded-full'>View Details</button></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     );
 };
-
-AllBooks.propTypes = {
-    book: PropTypes.object.isRequired, // Ensure that 'book' prop is required
+WishListCard.propTypes = {
+    book: PropTypes.object,
 };
 
-export default AllBooks;
+export default WishListCard;

@@ -1,38 +1,29 @@
-
-
-const getStoredReadBooks=()=>{
-    const storedReadBooks=localStorage.getItem('read-books')
-    if(storedReadBooks){
+const getStoredReadBooks = () => {
+    const storedReadBooks = localStorage.getItem('readBooks');
+    if (storedReadBooks) {
         return JSON.parse(storedReadBooks);
-
-    }
-    return [];
-
-}
-
-const saveReadBooks=bookId=>{
-    const storedReadBooks=getStoredReadBooks();
-    const exists=storedReadBooks.find(id=>id===bookId)
-    if(!exists){
-        storedReadBooks.push(bookId)
-        localStorage.setItem('read-books',JSON.stringify(storedReadBooks))
-    }
-}
-
-const getStoredWishlistBooks=()=>{
-    const wishlistBooks=localStorage.getItem('wishlist-books')
-    if(wishlistBooks){
-        return JSON.parse(wishlistBooks)
     }
     return [];
 }
 
-const saveWishListBooks=bookId=>{
-    const storedWishlistBooks=getStoredWishlistBooks();
-    const existsWishlist=storedWishlistBooks.find(id=>id===bookId)
-    if(!existsWishlist){
-        storedWishlistBooks.push(bookId)
-        localStorage.setItem('wishlist-books',JSON.stringify(storedWishlistBooks))
+const saveReadBooks = (book) => {
+    const readBooks = JSON.parse(localStorage.getItem('readBooks')) || [];
+    readBooks.push(book);
+    localStorage.setItem('readBooks', JSON.stringify(readBooks));
+};
+
+const getStoredWishlistBooks = () => {
+    const storedWishlistBooks = localStorage.getItem('wishListBooks');
+    if (storedWishlistBooks) {
+        return JSON.parse(storedWishlistBooks);
     }
+    return [];
 }
-export{getStoredReadBooks,saveReadBooks,getStoredWishlistBooks,saveWishListBooks}
+
+const saveWishListBooks = (book) => {
+    const wishListBooks = JSON.parse(localStorage.getItem('wishListBooks')) || [];
+    wishListBooks.push(book);
+    localStorage.setItem('wishListBooks', JSON.stringify(wishListBooks));
+};
+
+export { getStoredReadBooks, saveReadBooks, getStoredWishlistBooks, saveWishListBooks };

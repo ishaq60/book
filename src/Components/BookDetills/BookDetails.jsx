@@ -14,7 +14,7 @@ const BookDetails = () => {
 
     const handleReadBtn = () => {
         if (!alreadyRead) {
-            saveReadBooks(bookId);
+            saveReadBooks(book);
             toast.success('You have read the book');
             setAlreadyRead(true);
         } else {
@@ -26,7 +26,7 @@ const BookDetails = () => {
         if (alreadyRead) {
             toast.error('You have already marked this book as read. You cannot wishlist it.');
         } else if (!alreadyWishlisted) {
-            saveWishListBooks(bookId);
+            saveWishListBooks(book);
             toast.success('You have added this book to your wishlist');
             setAlreadyWishlisted(true);
         } else {
