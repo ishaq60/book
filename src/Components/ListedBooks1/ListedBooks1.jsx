@@ -6,12 +6,7 @@ const ListedBooks1 = () => {
 
     const [tabIndex,setTabIndex]=useState(0)
 
-    // const [books, setBooks] = useState([])
-    // useEffect(() => {
-    //     fetch('books.json')
-    //         .then(res => res.json())
-    //         .then(data => setBooks(data))
-    // }, [])
+    
 
     return (
         <div>
@@ -44,11 +39,6 @@ const ListedBooks1 = () => {
                 
     
             </div>
-            {/* <div>
-                {
-                    books.map(book=><AllBooks key={book.bookId} book={book}></AllBooks>)
-                }
-            </div> */}
             <Outlet></Outlet>
         </div>
         

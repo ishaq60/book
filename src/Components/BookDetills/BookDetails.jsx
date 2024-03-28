@@ -3,14 +3,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveReadBooks, saveWishListBooks } from "../../utility/localstorage";
 import { useState } from "react";
+
 const BookDetails = () => {
-    const [alreadyRead, setAlreadyRead] = useState(false)
+    const [alreadyRead, setAlreadyRead] = useState(false);
     const [alreadyWishlisted, setAlreadyWishlisted] = useState(false);
-    const books=useLoaderData();
-    const {bookId}=useParams()
-    const bookIdInt=parseInt(bookId)
-    const book=books.find(book=>book.bookId === bookIdInt)
-    console.log(book)
+    const books = useLoaderData();
+    const { bookId } = useParams();
+    const bookIdInt = parseInt(bookId);
+    const book = books.find(book => book.bookId === bookIdInt);
+    console.log(book);
 
     const handleReadBtn = () => {
         if (!alreadyRead) {
@@ -33,11 +34,12 @@ const BookDetails = () => {
             toast.error('You have already wishlisted this book');
         }
     };
+
     return (
         <div>
             <div className="flex gap-16">
                 <div className="bg-slate-100 p-32 w-[40%]">
-                <img className="h-[300px] w-[200px] w-a" src={book.image} alt="" />
+                    <img className="h-[300px] w-[200px] w-a" src={book.image} alt="" />
                 </div>
                 <div>
                     <h1 className="text-4xl font-playFair mb- font-bold" >{book.bookName}</h1>
